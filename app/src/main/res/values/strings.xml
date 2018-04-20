@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ClrGame</string>
+    <string name="textRulesGame">Совпадает ли название цвета слева с цветом текста справа?</string>
+    <string name="textColorName">Color_name</string>
+    <string name="textColorHex">Color_Hex</string>
+    <string name="buttonYes">Yes</string>
+    <string name="buttonNo">No</string>
+    <string name="textViewTrueAnswers">0</string>
+    <string name="textViewTime">60</string>
+</resources>

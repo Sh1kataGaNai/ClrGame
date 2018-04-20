@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteY="81dp">
+
+    <Button
+        android:id="@+id/buttonNo"
+        android:layout_width="102dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="64dp"
+        android:onClick="submitNo"
+        android:text="@string/buttonNo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonYes"
+        app:layout_constraintTop_toBottomOf="@+id/textColorHex" />
+
+    <TextView
+        android:id="@+id/textRulesGame"
+        android:layout_width="191dp"
+        android:layout_height="104dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/textRulesGame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textColorHex"
+        android:layout_width="138dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:text="@string/textColorHex"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textColorName"
+        app:layout_constraintTop_toBottomOf="@+id/textRulesGame" />
+
+    <TextView
+        android:id="@+id/textColorName"
+        android:layout_width="138dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:text="@string/textColorName"
+        app:layout_constraintEnd_toStartOf="@+id/textColorHex"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textRulesGame" />
+
+    <Button
+        android:id="@+id/buttonYes"
+        android:layout_width="102dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="64dp"
+        android:onClick="submitYes"
+        android:text="@string/buttonYes"
+        app:layout_constraintEnd_toStartOf="@+id/buttonNo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textColorName" />
+
+    <TextView
+        android:id="@+id/textViewTrueAnswers"
+        android:layout_width="117dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/textViewTrueAnswers"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textViewTime"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewTime"
+        android:layout_width="117dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/textViewTime"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewTrueAnswers" />
+
+</android.support.constraint.ConstraintLayout>
