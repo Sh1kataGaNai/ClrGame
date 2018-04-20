@@ -11,6 +11,8 @@ import android.app.Dialog;
 import android.app.AlertDialog;
 import android.app.DialogFragment;
 import java.util.TimerTask;
+
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
@@ -21,7 +23,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity  {
 
     private GameManager gm;
-    private TextView time;
+    private ProgressBar time;
     private TextView answers;
     private TextView first_color;
     private TextView second_color;
@@ -110,17 +112,19 @@ public class MainActivity extends AppCompatActivity  {
 
 
         answers = (TextView) findViewById(R.id.textViewTrueAnswers);
-        time = (TextView) findViewById(R.id.textViewTime);
+        time = (ProgressBar) findViewById(R.id.progressBarTimeLeft);
+        time.setMax(gm.getDeadlineSeconds());
         new CountDownTimer(gm.getDeadlineSeconds() * 1000, 1000) {
 
 
             public void onTick(long millisUntilFinished) {
-                time.setText("" + millisUntilFinished / 1000);
+                time.setProgress((int)millisUntilFinished / 1000);
+
                 answers.setText("" + gm.getTrueAnswers());
             }
 
             public void onFinish() {
-                time.setText("0");
+                time.setProgress(0);
                 answers.setText("" + gm.getTrueAnswers());
                 showResultsGame();
             }
