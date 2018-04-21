@@ -8,20 +8,49 @@ import java.util.ArrayList;
 
 public class GameManager {
 
-    private HashMap<String, String> colors;
-    private int deadline;
-    private int true_answers;
-    String rand_color_hex_first_field;
-    String rand_color_name_first_field;
-    String rand_color_hex_second_field;
-    String rand_color_name_second_field;
-    boolean state;
+    protected HashMap<String, String> colors;
+    protected int deadline;
+    protected int true_answers;
+    protected int current_game_time;
+    protected String rand_color_hex_first_field;
+    protected String rand_color_name_first_field;
+    protected String rand_color_hex_second_field;
+    protected String rand_color_name_second_field;
+    protected boolean state;
 
     public GameManager(){
+    //
 
+    }
+    public void newGame(){
+        initializeBaseColors();
+        //Setting default deadline in sec
+        deadline = 60;
+        true_answers = 0;
+        current_game_time = 60;
+    }
 
-        // Initialize colors hashmap
+    public void restoreSavedState(int deadline, int current_game_time, HashMap<String,
+            String> current_colors, int true_answers){
+        this.deadline = deadline;
+        this.current_game_time = current_game_time;
+        this.colors = current_colors;
+        this.true_answers = true_answers;
+    }
+    public int getCurrentGameTime(){
+        return current_game_time;
+    }
+    public void setCurrentGameTime(int game_time){
+        this.current_game_time = game_time;
+    }
+    public void setColorsHashMap(HashMap<String, String> colors){
+        colors = colors;
+    }
+    public HashMap<String, String> getAllColors(){
+        return colors;
+    }
 
+    private void initializeBaseColors(){
         colors = new HashMap<>();
         colors.put("GREEN", "#00FF00");
         colors.put("BLUE", "#0000FF");
@@ -30,13 +59,8 @@ public class GameManager {
         colors.put("DARK_RED", "#890000");
         colors.put("PINK", "#ff00a7");
         colors.put("ORANGE", "#ff8d00");
-
-        //Setting default deadline in sec
-
-        deadline = 60;
-        true_answers = 0;
-
     }
+
     public int getDeadlineSeconds() {
         return deadline;
     }
@@ -96,3 +120,4 @@ public class GameManager {
 
 
 }
+
