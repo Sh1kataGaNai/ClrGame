@@ -7,4 +7,9 @@
     <string name="buttonNo">No</string>
     <string name="textViewTrueAnswers">0</string>
     <string name="textViewTime">60</string>
+    <string name="textViewCongrats">Congratulations</string>
+    <string name="textViewResultsGame">Your results: </string>
+    <string name="buttonRestart">Restart</string>
+    <string name="buttonCompleteAndStart">Go</string>
+    <string name="buttonSendToEmail">Send</string>
 </resources>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResultsActivity">
+
+    <TextView
+        android:id="@+id/textViewCongrats"
+        android:layout_width="288dp"
+        android:layout_height="62dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/textViewCongrats"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewResultsGame"
+        android:layout_width="360dp"
+        android:layout_height="106dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/textViewResultsGame"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCongrats" />
+
+    <Button
+        android:id="@+id/buttonRestart"
+        android:layout_width="149dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="48dp"
+        android:onClick="submitRestart"
+        android:text="@string/buttonRestart"
+        android:drawableLeft="@drawable/ic_autorenew_black_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonSendToEmail"
+        app:layout_constraintTop_toBottomOf="@+id/textViewResultsGame" />
+
+    <Button
+        android:id="@+id/buttonSendToEmail"
+        android:layout_width="149dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="48dp"
+        android:onClick="submitSendEmail"
+        android:drawableLeft="@drawable/ic_email_black_24dp"
+        android:text="@string/buttonSendToEmail"
+        android:gravity="center|center_horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/buttonRestart"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewResultsGame" />
+</android.support.constraint.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.example.a.clrgame;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity  {
     private TextView second_color;
     private CountDownTimer timer;
     private boolean isRunning;
+    private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,12 @@ public class MainActivity extends AppCompatActivity  {
         second_color = (TextView) findViewById(R.id.textColorHex);
         answers = (TextView) findViewById(R.id.textViewTrueAnswers);
         time = (ProgressBar) findViewById(R.id.progressBarTimeLeft);
+
+        //Check email for pass into ResultsActivity
+
+        Bundle arguments = getIntent().getExtras();
+        if (arguments != null)
+            email = arguments.get("email").toString();
 
         timer = null;
         gm = new GameManager();
@@ -47,6 +55,7 @@ public class MainActivity extends AppCompatActivity  {
                     (HashMap<String, String>) savedInstanceState.getSerializable("colors"),
                     savedInstanceState.getInt("answers"));
             isRunning = savedInstanceState.getBoolean("is_running");
+            email = savedInstanceState.getString("email");
             greetingsAndStart();
         }
         else {
@@ -66,6 +75,7 @@ public class MainActivity extends AppCompatActivity  {
         bundle.putInt("answers", gm.getTrueAnswers());
         bundle.putSerializable("colors", gm.getAllColors());
         bundle.putBoolean("is_running", isRunning);
+        bundle.putString("email", email);
         if(timer != null)
             timer.cancel();
         gm = null;
@@ -121,7 +131,7 @@ public class MainActivity extends AppCompatActivity  {
 
         startGame();
     }
-    protected void showResultsGame() {
+    protected void showResultsGameAlertBox() {
         if (isRunning && gm.getCurrentGameTime() == 0) {
             AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
             alertDialog.setTitle("ClrGame");
@@ -148,6 +158,17 @@ public class MainActivity extends AppCompatActivity  {
 
         }
     }
+    protected void showResultsGameActivity(){
+
+        if(isRunning && gm.getCurrentGameTime() == 0)
+        {
+            Intent intent = new Intent(this, ResultsActivity.class);
+            intent.putExtra("results", gm.getTrueAnswers());
+            intent.putExtra("email", email);
+            finish();
+            startActivity(intent);
+        }
+    }
     protected void startGame() {
         isRunning = true;
         time.setMax(gm.getDeadlineSeconds());
@@ -166,7 +187,8 @@ public class MainActivity extends AppCompatActivity  {
                     time.setProgress(0);
                     gm.setCurrentGameTime(0);
                     answers.setText("" + gm.getTrueAnswers());
-                    showResultsGame();
+                    //showResultsGameAlertBox();
+                    showResultsGameActivity();
                 }
 
         }

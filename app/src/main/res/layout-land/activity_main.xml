@@ -11,7 +11,7 @@
         android:id="@+id/buttonNo"
         android:layout_width="102dp"
         android:layout_height="57dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="28dp"
         android:onClick="submitNo"
         android:text="@string/buttonNo"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,13 +21,13 @@
 
     <TextView
         android:id="@+id/textRulesGame"
-        android:layout_width="328dp"
-        android:layout_height="104dp"
+        android:layout_width="268dp"
+        android:layout_height="73dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="36dp"
         android:gravity="center"
         android:text="@string/textRulesGame"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,9 +36,9 @@
 
     <TextView
         android:id="@+id/textColorHex"
-        android:layout_width="138dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="165dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="@string/textColorHex"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,9 +48,9 @@
 
     <TextView
         android:id="@+id/textColorName"
-        android:layout_width="138dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="165dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="@string/textColorName"
         app:layout_constraintEnd_toStartOf="@+id/textColorHex"
@@ -62,7 +62,7 @@
         android:id="@+id/buttonYes"
         android:layout_width="102dp"
         android:layout_height="57dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="28dp"
         android:onClick="submitYes"
         android:text="@string/buttonYes"
         app:layout_constraintEnd_toStartOf="@+id/buttonNo"
@@ -72,9 +72,9 @@
 
     <TextView
         android:id="@+id/textViewTrueAnswers"
-        android:layout_width="118dp"
-        android:layout_height="36dp"
-        android:layout_marginBottom="108dp"
+        android:layout_width="104dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -88,15 +88,15 @@
     <ProgressBar
         android:id="@+id/progressBarTimeLeft"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="339dp"
-        android:layout_height="19dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="568dp"
+        android:layout_height="14dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
