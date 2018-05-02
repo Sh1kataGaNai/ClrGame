@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/new_game"
+        android:title="@string/new_game"
+        android:icon="@drawable/new_gamew"
+        app:showAsAction="always">
+
+    </item>
+    <item
+        android:id="@+id/settings"
+        android:title="@string/settings"
+        android:icon="@drawable/settingsw"
+        app:showAsAction="always">
+    </item>
+    <item
+        android:id="@+id/other"
+        android:title="@string/other"
+        android:icon="@drawable/otherw"
+        app:showAsAction="always"
+
+
+        >
+    <menu>
+        <item
+            android:id="@+id/helperExitApp"
+            android:title="@string/helperExitApp"
+            >
+        </item>
+    </menu>
+    </item>
+
+
+</menu>

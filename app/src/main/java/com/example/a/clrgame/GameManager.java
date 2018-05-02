@@ -25,9 +25,9 @@ public class GameManager {
     public void newGame(){
         initializeBaseColors();
         //Setting default deadline in sec
-        deadline = 10;
+        deadline = 60;
         true_answers = 0;
-        current_game_time = 10;
+        current_game_time = 60;
     }
 
     public void restoreSavedState(int deadline, int current_game_time, HashMap<String,

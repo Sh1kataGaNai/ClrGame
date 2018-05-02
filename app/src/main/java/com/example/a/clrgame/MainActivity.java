@@ -5,12 +5,16 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.os.CountDownTimer;
 import android.app.AlertDialog;
 
 import java.util.HashMap;
 
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -29,6 +33,9 @@ public class MainActivity extends AppCompatActivity  {
     private CountDownTimer timer;
     private boolean isRunning;
     private String email;
+    private Menu main_menu;
+    private Button buttonSubmitYes;
+    private Button buttonSubmitNo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +45,10 @@ public class MainActivity extends AppCompatActivity  {
         second_color = (TextView) findViewById(R.id.textColorHex);
         answers = (TextView) findViewById(R.id.textViewTrueAnswers);
         time = (ProgressBar) findViewById(R.id.progressBarTimeLeft);
+        buttonSubmitYes = (Button) findViewById(R.id.buttonYes);
+        buttonSubmitNo = (Button) findViewById(R.id.buttonNo);
+        buttonSubmitYes.setEnabled(false);
+        buttonSubmitNo.setEnabled(false);
 
         //Check email for pass into ResultsActivity
 
@@ -56,14 +67,60 @@ public class MainActivity extends AppCompatActivity  {
                     savedInstanceState.getInt("answers"));
             isRunning = savedInstanceState.getBoolean("is_running");
             email = savedInstanceState.getString("email");
+            buttonSubmitYes.setEnabled(true);
+            buttonSubmitNo.setEnabled(true);
             greetingsAndStart();
         }
         else {
             isRunning = false;
-            greetingsAndStart();
-
         }
 
+
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menumain, menu);
+        main_menu = menu;
+        if(isRunning){
+            main_menu.getItem(0).setIcon(getResources()
+                    .getDrawable(R.drawable.stopw));
+        }
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.new_game:
+                if (isRunning) {
+                    main_menu.getItem(0).setIcon(getResources()
+                            .getDrawable(R.drawable.new_gamew));
+                    timer.cancel();
+                    time.setProgress(0);
+                    isRunning = false;
+                    buttonSubmitYes.setEnabled(false);
+                    buttonSubmitNo.setEnabled(false);
+                    answers.setText("0");
+                    first_color.setText("####");
+                    second_color.setText("####");
+                }
+                else{
+                    if (gm == null)
+                        gm = new GameManager();
+                    greetingsAndStart();
+
+                }
+                return true;
+
+            case R.id.helperExitApp:
+                finish();
+                return true;
+
+            default:
+                return true;
+
+        }
 
     }
 
@@ -94,6 +151,8 @@ public class MainActivity extends AppCompatActivity  {
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
                             gamingStage();
+                            main_menu.getItem(0).setIcon(getResources()
+                                    .getDrawable(R.drawable.stopw));
 
 
                         }
@@ -117,6 +176,9 @@ public class MainActivity extends AppCompatActivity  {
 
     protected void gamingStage(){
 
+        buttonSubmitNo.setEnabled(true);
+        buttonSubmitYes.setEnabled(true);
+
         if(!isRunning)
             gm.newGame();
 
@@ -131,6 +193,8 @@ public class MainActivity extends AppCompatActivity  {
 
         startGame();
     }
+    /* Old code
+
     protected void showResultsGameAlertBox() {
         if (isRunning && gm.getCurrentGameTime() == 0) {
             AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
@@ -158,6 +222,7 @@ public class MainActivity extends AppCompatActivity  {
 
         }
     }
+    */
     protected void showResultsGameActivity(){
 
         if(isRunning && gm.getCurrentGameTime() == 0)

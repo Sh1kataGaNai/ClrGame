@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">ClrGame</string>
     <string name="textRulesGame">Совпадает ли название цвета слева с цветом текста справа?</string>
-    <string name="textColorName">Color_name</string>
-    <string name="textColorHex">Color_Hex</string>
+    <string name="textColorName">####</string>
+    <string name="textColorHex">####</string>
     <string name="buttonYes">Yes</string>
     <string name="buttonNo">No</string>
     <string name="textViewTrueAnswers">0</string>
@@ -12,4 +12,8 @@
     <string name="buttonRestart">Restart</string>
     <string name="buttonCompleteAndStart">Go</string>
     <string name="buttonSendToEmail">Send</string>
+    <string name="new_game">New Game</string>
+    <string name="settings">Settings</string>
+    <string name="other">Other</string>
+    <string name="helperExitApp">Exit</string>
 </resources>
